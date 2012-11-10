@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+    html {
+        height: 100%
+    }
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0
+    }
+    table {
+        padding: 0px;
+        width: 100%;
+    }
+    th {
+        background-color: #FF7400;
+        padding: 10px;
+        vertical-align: center;
+    }
+    td {
+        background-color: #efefef;
+        padding: 10px;
+        vertical-align: center;
+    }
+    #details_wrapping {
+        float: left;
+        height: 100%;
+        width: 33%;
+    }
+    #details {
+        font-family: Arial, Verdana, Lucida Sans;
+        padding: 10px;
+    }
+    #map_canvas {
+        height: 100%;
+        float: left;
+        width: 67%;
+    }
+</style>
+
+    <!-- <script type="text/javascript" src="js/map-helper.js"></script> -->
+    <script type="text/javascript">
+        
+
+        function initialize() {
+            var defaultBounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(36.2679, 67.8718),
+            new google.maps.LatLng(5.28, 97.8718));
+            var mapOptions = {
+                bounds: defaultBounds,
+                center: new google.maps.LatLng(23, 81),
+                zoom: 5,
+                minZoom: 5,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                streetViewControl: false,
+            }
+
+            var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+        }
+    </script>
+</head>
+<body>
+<div id="details_wrapping">
+<div id="details" name="state">
+<b>Project Listings by State/Province</b>
+<br>
+Click on each state/province for more details about projects in each state/province.
+<br>
+<table>
+<tr>
+<th><b>State/Province</b></th>
+<th><b># Projects</b></th>
+</tr>
+<rr><td>Delhi</td>
+<td>23</td></tr>
+<tr><td>Punjab</td></tr></table>
+</div>
+
+<div id="details" name="project">
+<table><tr><td><img width="130" src="https://lh3.googleusercontent.com/-wFK3xleOSdo/T_gNnQSN5fI/AAAAAAAAARU/N8VVN2l0WSc/s480/trinita.jpg"></td>
+<td>
+<b>PROJ_NAME Project Details</b>
+<br>
+Focus
+</td></tr></table>
+<table>
+<tr><td>
+<b>Sustainability</b>
+<li>Asdf</li>
+<li>asdf</li>
+<br><br>
+</td>
+</tr></table>
+</div>
+
+
+
+</div>
+<div id="map_canvas"></div>
+</body>
+</html>

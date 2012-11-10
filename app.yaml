@@ -1,0 +1,24 @@
+application: ashaforedu
+version: 4
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /bootstrap/([^/]*)/(.*)
+  static_files: bootstrap/\1/\2
+  upload: bootstrap/([^/]*)/(.*)
+
+- url: /js
+  static_dir: js
+
+- url: .*
+  script: main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.1"

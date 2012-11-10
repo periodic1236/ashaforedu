@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+
+    <style type="text/css">
+        html {
+            height: 100%
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map_canvas {
+            height: 100%;
+        }
+    </style>
+<script type="text/javascript" src="js/load-details.js"></script>
+    <script type="text/javascript" src="js/map-helper.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        function initialize() {
+            var defaultBounds = new google.maps.LatLngBounds(
+                new google.maps.LatLng(36.2679, 67.8718),
+                new google.maps.LatLng(5.28, 97.8718));
+
+            var mapOptions = {
+                bounds: defaultBounds,
+                center: new google.maps.LatLng(23, 81),
+                zoom: 5,
+                minZoom: 5,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                streetViewControl: false,
+            }
+
+            var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+            addMarker(1, map, 21.7679, 78.8718);
+
+            $('#tabs a:first').tab('show'); // Select first tab
+        }
+
+        function loadScript() {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDnJnLN0ZGWeifcxjGxaXNQ5Td8ipRe5QQ&sensor=false&region=IN&callback=initialize";
+            document.body.appendChild(script);
+        }
+
+        window.onload = loadScript;
+    </script>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span4">
+            <script type="text/javascript">
+            displayDetails(1);
+            </script>
+            <br>
+            </div>
+            <div class="span8">
+                <!-- <div id="map_canvas" style="width: 100%; height: 100%"></div> -->
+                <div id="map_canvas" style="width: 100%; height: 800px"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
